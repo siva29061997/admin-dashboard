@@ -15,11 +15,13 @@ import Portal from './Portal';
 import Userview from './Userview';
 import Edituser from './Edituser';
 import Demo from './Demo';
+import { UserProvider } from './useContaxt';
 
 
 function App() {
   return (
     <BrowserRouter>
+      <UserProvider>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/portal" element={<Portal />} >
@@ -31,6 +33,7 @@ function App() {
           <Route path="create-users" element={<CreateUsers />} />
         </Route>
       </Routes>
+      </UserProvider>
     </BrowserRouter>
   );
 }

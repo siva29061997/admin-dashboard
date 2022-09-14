@@ -1,9 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import UserContaxt from './useContaxt';
 
 function Edituser() {
+  let context = useContext(UserContaxt)
+  let changeUser = () => {
+     context.setUsername(name)
+  }
+  const [name,setNama] = useState("")
   const params = useParams()
   const navigate = useNavigate
     const formik = useFormik({
@@ -107,7 +113,8 @@ function Edituser() {
                   <span style={{color:'red'}}>{formik.errors.salary}</span>
                 </div>
                 <div className='col-lg-6'>
-                  <input className='btn btn-primary mt-4' type={"submit"} value="Submit" disabled={!formik.isValid} />
+                  <input className='btn btn-primary mt-4' onClick={changeUser} value={name} onChange={(e)=>setNama(e.target.value)} type={"submit"} value="Submit" disabled={!formik.isValid} />
+                  {name}
                 </div>
               </div>
             </form>

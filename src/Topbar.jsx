@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import './index.css'
 
 function Topbar() {
 
@@ -62,7 +63,7 @@ function Topbar() {
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i className="fas fa-bell fa-fw"></i>
                                 {/* <!-- Counter - Alerts --> */}
-                                <span className="badge badge-danger badge-counter">3+</span>
+                                <span className="badge badge-danger badge-counter"></span>
                             </a>
                             {/* <!-- Dropdown - Alerts --> */}
                             <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -113,7 +114,7 @@ function Topbar() {
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i className="fas fa-envelope fa-fw"></i>
                                 {/* <!-- Counter - Messages --> */}
-                                <span className="badge badge-danger badge-counter">7</span>
+                                <span className="badge badge-danger badge-counter"></span>
                             </a>
                             {/* <!-- Dropdown - Messages --> */}
                             <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -179,9 +180,8 @@ function Topbar() {
                         <li className="nav-item dropdown no-arrow">
                             <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span onClick={logout} className="mr-2 d-none d-lg-inline text-gray-600 small">LOG OUT</span>
-                                <img className="img-profile rounded-circle"
-                                    src="assets/144-1447943_logout-icon-png-red-clipart-png-download-power.png"/>
+                                <span onClick={logout} className="logout"><b>LOG OUT</b></span>
+                               
                             </a>
                             {/* <!-- Dropdown - User Information --> */}
                             <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
