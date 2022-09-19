@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
+import { env } from './Config'
 
 function Userview() {
     const params = useParams()
@@ -18,7 +19,7 @@ function Userview() {
 
       let loadUser = async ()=>{
           try {
-          let user = await axios.get(`https://6300faaee71700618a325118.mockapi.io/api/v1/users/${params.id}`)
+          let user = await axios.get(`${env.api}/user/${params.id}`)
           setUseData(user.data)
           } catch (error) {
             

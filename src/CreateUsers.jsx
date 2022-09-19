@@ -1,6 +1,7 @@
 import { useFormik } from 'formik';
 import React from 'react'
 import axios from 'axios';
+import { env } from './Config';
 
 function CreateUsers() {
   const formik = useFormik({
@@ -42,7 +43,7 @@ function CreateUsers() {
       return errors
     },
     onSubmit: async (values) => {
-    let user = await axios.post("https://6300faaee71700618a325118.mockapi.io/api/v1/users",values)
+    let user = await axios.post(`${env.api}/user`,values)
     alert("user created")
     }, 
   })
