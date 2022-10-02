@@ -7,24 +7,24 @@ function Dashbord() {
     let context = useContext(UserContaxt)
     const cards = [
         {
-            title:"EARNINGS (MONTHLY)",
-            price:"$40,000",
-            theme:"primary"
+            title: "EARNINGS (MONTHLY)",
+            price: "$40,000",
+            theme: "primary"
         },
         {
-            title:"EARNINGS (ANNUAL)",
-            price:"$215,000",
-            theme:"success"
+            title: "EARNINGS (ANNUAL)",
+            price: "$215,000",
+            theme: "success"
         },
         {
-            title:"TASKS",
-            price:"50%",
-            theme:"info"
+            title: "TASKS",
+            price: "50%",
+            theme: "info"
         },
         {
-            title:"PENDING REQUESTS",
-            price:"18",
-            theme:"warning"
+            title: "PENDING REQUESTS",
+            price: "18",
+            theme: "warning"
         },
     ]
     return (
@@ -36,8 +36,8 @@ function Dashbord() {
             </div>
             <div className="row">
                 {
-                    cards.map((card)=>{
-                       return <Card card={card}></Card>
+                    cards.map((card) => {
+                        return <Card card={card}></Card>
                     })
                 }
             </div>
