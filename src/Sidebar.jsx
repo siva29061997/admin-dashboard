@@ -11,7 +11,7 @@ function Sidebar() {
                 <div className="sidebar-brand-icon rotate-n-15">
                     <i className="fas fa-laugh-wink"></i>
                 </div>
-                <div className="sidebar-brand-text mx-3">USER NAME <br/>{context.username}</div>
+                <div className="sidebar-brand-text mx-3">wellcome<br/>{context.username}</div>
                 
             </a>
 

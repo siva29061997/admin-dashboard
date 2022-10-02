@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({card}) {
+function Card({ card }) {
     return (
         <div className="col-xl-3 col-md-6 mb-4">
             <div className={`card border-left-${card.theme} shadow h-100 py-2`}>

@@ -19,7 +19,7 @@ function Userview() {
 
       let loadUser = async ()=>{
           try {
-          let user = await axios.get(`${env.api}/user/${params.id}`, {
+          let user = await axios.get(`${env.api}/product/${params.id}`, {
             headers: {
                 'authorization': window.localStorage.getItem("app-token")
             }

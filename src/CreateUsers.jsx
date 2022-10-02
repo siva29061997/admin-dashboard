@@ -43,7 +43,11 @@ function CreateUsers() {
       return errors
     },
     onSubmit: async (values) => {
-    let user = await axios.post(`${env.api}/user`,values)
+    let user = await axios.post(`${env.api}/user`,values, {
+      headers: {
+          'authorization': window.localStorage.getItem("app-token")
+      }
+  })
     alert("user created")
     }, 
   })

@@ -15,7 +15,11 @@ function Users() {
 
     let loadData = async () => {
         setLoading(true)
-        let users = await axios.get(`${env.api}/users?limit=100&offset=0`);
+        let users = await axios.get(`${env.api}/users?limit=100&offset=0`, {
+            headers: {
+                'authorization': window.localStorage.getItem("app-token")
+            }
+        });
         console.log(users)
         setUsers(users.data)
         setLoading(false)
@@ -25,7 +29,11 @@ function Users() {
         try {
             let ask = window.confirm("Are you sure? Do you want to delete this data?");
             if (ask) {
-                await axios.delete(`${env.api}/user/${id}`)
+                await axios.delete(`${env.api}/user/${id}`, {
+                    headers: {
+                        'authorization': window.localStorage.getItem("app-token")
+                    }
+                })
                 loadData()
             }
 

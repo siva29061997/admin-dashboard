@@ -1,10 +1,10 @@
+import React from 'react'
 import axios from 'axios';
 import { useFormik } from 'formik';
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { env } from './Config';
 
-function Login() {
+function Signup() {
     let navigate = useNavigate();
     let userName = "abc";
     let pass = "123"
@@ -23,10 +23,9 @@ function Login() {
         },
         onSubmit: async (values) => {
          try {
-           let loginData = await axios.post(`${env.api}/login`,values)
+           let loginData = await axios.post(`${env.api}/register`,values)
            if(loginData.status === 200){
-            navigate("/portal/dashbord")
-            window.localStorage.setItem("app-token",loginData.data.token)
+            navigate("/")
            }
            console.log(loginData)
          } catch (error) {
@@ -51,43 +50,34 @@ function Login() {
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Registration!</h1>
                                         </div>
                                         <form class="user" onSubmit={formik.handleSubmit}>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" 
-                                                    value={formik.values.email} onChange={formik.handleChange} name="email" />
+                                            <div>
+                                                <h6 class="h6 text-gray-900 mb-4">Email Id</h6>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" 
-                                                    value={formik.values.password} name="password" onChange={formik.handleChange} />
+                                                <input type="email" class="form-control form-control-user"
+                                                  value={formik.values.email} onChange={formik.handleChange}  name="email" />
+                                            </div>
+                                            <div>
+                                                <h6 class="h6 text-gray-900 mb-4">Password</h6>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-user"
+                                                  value={formik.values.password}  name="password" onChange={formik.handleChange} />
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck" />
-                                                    <label class="custom-control-label" for="customCheck">Remember
-                                                        Me</label>
                                                 </div>
                                             </div>
                                             <button type='submit' class="btn btn-primary btn-user btn-block">
-                                                Login
+                                                Sign Up
                                             </button>
                                             <hr />
-                                            <a href="index.html" class="btn btn-google btn-user btn-block">
-                                                <i class="fab fa-google fa-fw"></i> Login with Google
-                                            </a>
-                                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                                <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                            </a>
                                         </form>
                                         <hr />
-                                        <div class="text-center">
-                                            <Link to={`\signup`}>Forgot Password?</Link>
-                                        </div>
-                                        <div class="text-center">
-                                            <Link to={`\signup`} >Create an Account!</Link>
-                                            {/* <Link to={`/portal/users/${user._id}`} className='btn btn-sm btn-primary mr-1'>View</Link> */}
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -102,4 +92,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Signup;
