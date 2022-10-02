@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useFormik } from 'formik';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { env } from './Config';
 
 function Signup() {
@@ -20,16 +20,16 @@ function Signup() {
             password: ""
         },
         onSubmit: async (values) => {
-         try {
-           let loginData = await axios.post(`${env.api}/register`,values)
-           if(loginData.status === 200){
-            navigate("/")
-           }
-           console.log(loginData)
-         } catch (error) {
-            alert(error.response.data.message)
-            console.log(error)
-         }
+            try {
+                let loginData = await axios.post(`${env.api}/register`, values)
+                if (loginData.status === 200) {
+                    navigate("/")
+                }
+                console.log(loginData)
+            } catch (error) {
+                // alert(error.response.data.message)
+                console.log(error)
+            }
         }
     })
     return (
@@ -56,14 +56,14 @@ function Signup() {
                                             </div>
                                             <div class="form-group">
                                                 <input type="email" class="form-control form-control-user"
-                                                  value={formik.values.email} onChange={formik.handleChange}  name="email" />
+                                                    value={formik.values.email} onChange={formik.handleChange} name="email" />
                                             </div>
                                             <div>
                                                 <h6 class="h6 text-gray-900 mb-4">Password</h6>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control form-control-user"
-                                                  value={formik.values.password}  name="password" onChange={formik.handleChange} />
+                                                    value={formik.values.password} name="password" onChange={formik.handleChange} />
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
