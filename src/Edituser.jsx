@@ -11,7 +11,7 @@ function Edituser() {
     context.setUsername(name)
   }
   const [name, setNama] = useState("")
-  const params = useParams()
+  const { id } = useParams()
   const navigate = useNavigate
   const formik = useFormik({
     initialValues: {
@@ -52,7 +52,7 @@ function Edituser() {
       return errors
     },
     onSubmit: async (values) => {
-      await axios.put(`${env.api}/user/:id`, values, {
+      await axios.put(`${env.api}/user/${id}`, values, {
         headers: {
           'authorization': window.localStorage.getItem("app-token")
         }
@@ -68,7 +68,7 @@ function Edituser() {
 
   let loadUser = async () => {
     try {
-      let user = await axios.get(`${env.api}/user/:id`, {
+      let user = await axios.get(`${env.api}/user/${id}`, {
         headers: {
           'authorization': window.localStorage.getItem("app-token")
         }

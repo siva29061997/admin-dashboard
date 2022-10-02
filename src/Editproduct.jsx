@@ -11,7 +11,7 @@ function Edituser() {
     context.setUsername(name)
   }
   const [name, setNama] = useState("")
-  const params = useParams()
+  const { id } = useParams()
   const navigate = useNavigate
   const formik = useFormik({
     initialValues: {
@@ -52,11 +52,11 @@ function Edituser() {
       return errors
     },
     onSubmit: async (values) => {
-      await axios.put(`${env.api}/product/:id`, values, {
+      await axios.put(`${env.api}/product/${id}`, values, {
         headers: {
-            'authorization': window.localStorage.getItem("app-token")
+          'authorization': window.localStorage.getItem("app-token")
         }
-    })
+      })
       alert("Saccessful Edit For User")
       navigate("/portal/products")
 
@@ -69,11 +69,11 @@ function Edituser() {
 
   let loadUser = async () => {
     try {
-      let user = await axios.get(`${env.api}/product/:id`, {
+      let user = await axios.get(`${env.api}/product/${id}`, {
         headers: {
-            'authorization': window.localStorage.getItem("app-token")
+          'authorization': window.localStorage.getItem("app-token")
         }
-    })
+      })
       formik.setValues({
         name: user.data.name,
         position: user.data.position,

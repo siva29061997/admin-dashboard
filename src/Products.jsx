@@ -95,7 +95,7 @@ function Users() {
                                                 <td>${user.salary}</td>
                                                 <td>
                                                     <Link to={`/portal/products/${user._id}`} className='btn btn-sm btn-primary mr-1'>View</Link>
-                                                    <Link to={`/portal/product/edit/${user._id}`} className='btn btn-sm btn-success mr-1'>Edite</Link>
+                                                    <Link to={`/portal/product/edit/${user._id}`} className='btn btn-sm btn-success mr-1'>Edit</Link>
                                                     <button onClick={() => userDelete(user._id)} className='btn btn-sm btn-danger mr-1'>Delete</button>
                                                 </td>
 
