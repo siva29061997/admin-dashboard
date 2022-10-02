@@ -6,8 +6,7 @@ import { env } from './Config';
 
 function Login() {
     let navigate = useNavigate();
-    let userName = "abc";
-    let pass = "123"
+    
     // let login = () => {
     //     if (userName == "abc" && pass == "123") {
     //         navigate("/portal/dashbord")
@@ -22,17 +21,17 @@ function Login() {
             password: ""
         },
         onSubmit: async (values) => {
-         try {
-           let loginData = await axios.post(`${env.api}/login`,values)
-           if(loginData.status === 200){
-            navigate("/portal/dashbord")
-            window.localStorage.setItem("app-token",loginData.data.token)
-           }
-           console.log(loginData)
-         } catch (error) {
-            alert(error.response.data.message)
-            console.log(error)
-         }
+            try {
+                let loginData = await axios.post(`${env.api}/login`, values)
+                if (loginData.status === 200) {
+                    navigate("/portal/dashbord")
+                    window.localStorage.setItem("app-token", loginData.data.token)
+                }
+                console.log(loginData)
+            } catch (error) {
+                alert(error.response.data.message)
+                console.log(error)
+            }
         }
     })
     return (
@@ -55,11 +54,11 @@ function Login() {
                                         </div>
                                         <form class="user" onSubmit={formik.handleSubmit}>
                                             <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" 
+                                                <input type="email" class="form-control form-control-user"
                                                     value={formik.values.email} onChange={formik.handleChange} name="email" />
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" 
+                                                <input type="password" class="form-control form-control-user"
                                                     value={formik.values.password} name="password" onChange={formik.handleChange} />
                                             </div>
                                             <div class="form-group">
