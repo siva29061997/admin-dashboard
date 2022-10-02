@@ -6,7 +6,7 @@ import { env } from './Config';
 
 function Login() {
     let navigate = useNavigate();
-    
+
     // let login = () => {
     //     if (userName == "abc" && pass == "123") {
     //         navigate("/portal/dashbord")
@@ -29,7 +29,7 @@ function Login() {
                 }
                 console.log(loginData)
             } catch (error) {
-                alert(error.response.data.message)
+                // alert(error.response.data.message)
                 console.log(error)
             }
         }
