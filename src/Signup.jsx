@@ -6,14 +6,6 @@ import { env } from './Config';
 
 function Signup() {
     let navigate = useNavigate();
-    // let login = () => {
-    //     if (userName == "abc" && pass == "123") {
-    //         navigate("/portal/dashbord")
-    //     }
-    //     else {
-    //         alert("wrong")
-    //     }
-    // };
     let formik = useFormik({
         initialValues: {
             email: "",

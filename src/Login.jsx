@@ -2,32 +2,24 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import { env } from './Config';
+import { env, loginSchema } from './Config';
 
 function Login() {
     let navigate = useNavigate();
-
-    // let login = () => {
-    //     if (userName == "abc" && pass == "123") {
-    //         navigate("/portal/dashbord")
-    //     }
-    //     else {
-    //         alert("wrong")
-    //     }
-    // };
     let formik = useFormik({
         initialValues: {
             email: "",
             password: ""
         },
+        validationSchema: loginSchema,
         onSubmit: async (values) => {
             try {
                 let loginData = await axios.post(`${env.api}/login`, values)
+                console.log(loginData)
                 if (loginData.status === 200) {
                     navigate("/portal/dashbord")
                     window.localStorage.setItem("app-token", loginData.data.token)
                 }
-                console.log(loginData)
             } catch (error) {
                 alert(error.response.data.message)
                 console.log(error)
@@ -53,11 +45,19 @@ function Login() {
                                             <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                         </div>
                                         <form class="user" onSubmit={formik.handleSubmit}>
+                                            <div>
+                                                <h6 class="h6 text-gray-900 mb-4">Email Id</h6>
+                                            </div>
                                             <div class="form-group">
+                                                <span className="danger">{formik.errors.email}</span>
                                                 <input type="email" class="form-control form-control-user"
                                                     value={formik.values.email} onChange={formik.handleChange} name="email" />
                                             </div>
+                                            <div>
+                                                <h6 class="h6 text-gray-900 mb-4">Password</h6>
+                                            </div>
                                             <div class="form-group">
+                                                <span className="errors">{formik.errors.password}</span>
                                                 <input type="password" class="form-control form-control-user"
                                                     value={formik.values.password} name="password" onChange={formik.handleChange} />
                                             </div>
@@ -72,12 +72,12 @@ function Login() {
                                                 Login
                                             </button>
                                             <hr />
-                                            <a href="index.html" class="btn btn-google btn-user btn-block">
+                                            {/* <a class="btn btn-google btn-user btn-block">
                                                 <i class="fab fa-google fa-fw"></i> Login with Google
                                             </a>
-                                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <a class="btn btn-facebook btn-user btn-block">
                                                 <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                            </a>
+                                            </a> */}
                                         </form>
                                         <hr />
                                         <div class="text-center">
