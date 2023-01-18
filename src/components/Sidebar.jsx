@@ -1,19 +1,18 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import UserContaxt from "./useContaxt";
+import UserContaxt from "../useContaxt";
 
 function Sidebar() {
     let context = useContext(UserContaxt)
     return (
         <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="dashbord">
                 <div className="sidebar-brand-icon rotate-n-15">
                     <i className="fas fa-laugh-wink"></i>
                 </div>
-                <div className="sidebar-brand-text mx-3">wellcome<br/>{context.username}</div>
-                
-            </a>
+                <div className="sidebar-brand-text mx-3">wellcome<br />{context.name}</div>
+            </Link>
 
 
             <hr className="sidebar-divider my-0" />

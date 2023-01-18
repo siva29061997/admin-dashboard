@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
-import { env } from './Config'
+import { env } from '../Config'
 
 function Userview() {
     const params = useParams()

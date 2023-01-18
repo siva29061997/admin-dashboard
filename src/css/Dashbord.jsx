@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Card from '../Card'
+import Card from '../components/Card'
 import UserContaxt from '../useContaxt'
 
 

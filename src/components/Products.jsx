@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { env } from './Config';
+import { env } from '../Config';
 
 function Users() {
 
@@ -15,7 +15,7 @@ function Users() {
 
     let loadData = async () => {
         setLoading(true)
-        let users = await axios.get(`${env.api}/users?limit=100&offset=0`, {
+        let users = await axios.get(`${env.api}/products?limit=100&offset=0`, {
             headers: {
                 'authorization': window.localStorage.getItem("app-token")
             }
@@ -29,7 +29,7 @@ function Users() {
         try {
             let ask = window.confirm("Are you sure? Do you want to delete this data?");
             if (ask) {
-                await axios.delete(`${env.api}/user/${id}`, {
+                await axios.delete(`${env.api}/product/${id}`, {
                     headers: {
                         'authorization': window.localStorage.getItem("app-token")
                     }
@@ -45,9 +45,9 @@ function Users() {
         <div class="container-fluid">
 
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Users</h1>
-                <Link to="/portal/create-users" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Create Users</Link>
+                <h1 class="h3 mb-0 text-gray-800">Product</h1>
+                <Link to="/portal/create-products" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Create Product</Link>
             </div>
 
             {
@@ -62,11 +62,11 @@ function Users() {
                                     <tr>
                                         <th>S.No</th>
                                         <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
+                                        <th>Discription</th>
+                                        <th>Review</th>
+                                        <th>Rating</th>
                                         <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Price</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -94,8 +94,8 @@ function Users() {
                                                 <td>{user.statDate}</td>
                                                 <td>${user.salary}</td>
                                                 <td>
-                                                    <Link to={`/portal/users/${user._id}`} className='btn btn-sm btn-primary mr-1'>View</Link>
-                                                    <Link to={`/portal/user/edit/${user._id}`} className='btn btn-sm btn-success mr-1'>Edit</Link>
+                                                    <Link to={`/portal/products/${user._id}`} className='btn btn-sm btn-primary mr-1'>View</Link>
+                                                    <Link to={`/portal/product/edit/${user._id}`} className='btn btn-sm btn-success mr-1'>Edit</Link>
                                                     <button onClick={() => userDelete(user._id)} className='btn btn-sm btn-danger mr-1'>Delete</button>
                                                 </td>
 

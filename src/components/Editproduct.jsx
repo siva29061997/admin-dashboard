@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import UserContaxt from './useContaxt';
-import { env } from './Config';
+import UserContaxt from '../useContaxt';
+import { env } from '../Config';
 
 function Edituser() {
   let context = useContext(UserContaxt)

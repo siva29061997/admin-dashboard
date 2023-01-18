@@ -1,24 +1,23 @@
-
 import './css/sb-admin-2.css';
 import Dashbord from './css/Dashbord';
-import Users from './Users';
+import Users from './components/Users';
 import "./App.css"
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
-import Products from './Products';
-import CreateUsers from './CreateUsers';
-import Login from './Login';
-import Portal from './Portal';
-import Userview from './Userview';
-import Productview from './Productview';
-import Edituser from './Edituser';
-import Editproduct from './Editproduct';
+import Products from './components/Products';
+import CreateUsers from './components/CreateUsers';
+import Login from './pages/Login';
+import Portal from './components/Portal';
+import Userview from './components/Userview';
+import Productview from './components/Productview';
+import Edituser from './components/Edituser';
+import Editproduct from './components/Editproduct';
 import { UserProvider } from './useContaxt';
-import CreateProduct from './CreateProdut';
-import Signup from './Signup';
+import CreateProduct from './components/CreateProdut';
+import Signup from './pages/Signup';
 
 
 function App() {

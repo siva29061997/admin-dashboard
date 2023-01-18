@@ -5,6 +5,6 @@ export const env = {
 }
 
 export const loginSchema = yup.object().shape({
-    email: yup.string().email().required("please enter the valid email"),
-    password: yup.string().required("please enter your password"),
+    email: yup.string().email().required("please enter the valid email*"),
+    password: yup.string().required("please enter the valid password*"),
 });

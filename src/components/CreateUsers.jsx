@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import React from 'react'
 import axios from 'axios';
-import { env } from './Config';
+import { env } from '../Config';
 
 function CreateUsers() {
   const formik = useFormik({
