@@ -81,10 +81,10 @@ function Login() {
                                         </form>
                                         <hr />
                                         <div className="text-center">
-                                            <Link to={`\signup`}>Forgot Password?</Link>
+                                            <Link to={`/forgetpassword`}>Forgot Password?</Link>
                                         </div>
                                         <div className="text-center">
-                                            <Link to={`\signup`} >Create an Account!</Link>
+                                            <Link to={`/signup`} >Create an Account!</Link>
                                             {/* <Link to={`/portal/users/${user._id}`} classNameName='btn btn-sm btn-primary mr-1'>View</Link> */}
                                         </div>
                                     </div>
